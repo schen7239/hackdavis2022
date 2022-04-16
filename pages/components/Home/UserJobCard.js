@@ -4,9 +4,9 @@ function UserJobCard({ title, posted, description, isInternship, isInPerson }) {
   return (
     <div className='p-4 bg-white mb-4 rounded-xl shadow-md'>
         <div className='flex'>
-            <div className='flex flex-col flex-1 gap-2'>
+            <div className='flex flex-col flex-1 gap-4'>
                 <div className='flex items-center space-x-4'>
-                    <div className='h-10 w-10 rounded-full bg-blue-100' />
+                    <div className='h-12 w-12 rounded-full bg-blue-100' />
                     <div className='flex flex-col justify-center'>
                         <h1 className='text-lg font-semibold'>{title}</h1>
                         <p className='text-gray-400 text-sm'>{posted}</p>
@@ -22,7 +22,7 @@ function UserJobCard({ title, posted, description, isInternship, isInPerson }) {
                 <button className='w-auto h-auto bg-button-gray rounded-2xl px-2 py-1 text-xs font-medium active:scale-90 transition duration-150 ease-out'>Contact</button>
             </div>
         </div>
-        <div className='pt-2 text-xs font-medium'>{description}</div>
+        <div className='py-3 text-xs font-medium'>{description}</div>
     </div>
   )
 }
