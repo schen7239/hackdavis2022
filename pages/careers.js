@@ -5,7 +5,7 @@ import Recommendations from "./data/reccomended.json";
 import { UserJobCard } from "./components/index";
 
 function Careers() {
-  const OppuritunitiesTab = "opputitunities tab";
+  const OpportunitiesTab = "opputitunities tab";
   const CheckInsTab = "check ins tab";
   const ExercisesTab = "exercises tab";
   const [tab, setTab] = useState(OppuritunitiesTab);
@@ -21,7 +21,7 @@ function Careers() {
 
   function DisplayTab() {
     switch (tab) {
-      case OppuritunitiesTab:
+      case OpportunitiesTab:
         return (
           <div className="grid grid-cols-2 bg-gray-100 mx-20 mt-20 gap-8">
             <div>
@@ -79,10 +79,10 @@ function Careers() {
         <div className="col-span-4">
           <div className="mx-40 mt-20 flex-1 columns-3">
             <p
-              onClick={() => setTab(OppuritunitiesTab)}
+              onClick={() => setTab(OpportunitiesTab)}
               className="flex justify-center text-2xl font-semibold"
             >
-              Oppuritunities
+              Opportunities
             </p>
             <p
               onClick={() => setTab(CheckInsTab)}
