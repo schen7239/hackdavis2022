@@ -1,7 +1,4 @@
-import Sidebar from "./Home/Sidebar"
+import Sidebar from "./Home/Sidebar";
+import SearchBar from "./Home/SearchBar";
 
-
-
-export {
-    Sidebar,
-}
+export { Sidebar, SearchBar };
