@@ -1,12 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
 import react, { useState } from "react";
-import { Sidebar } from "./components";
+import { Sidebar, Discover } from "./components";
 import { Icon } from "@iconify/react";
 
 export default function Home() {
-  const [userSearch, setUserSearch] = useState("");
-  console.log(userSearch);
   return (
     <div className="h-[100vh] select-none">
       <Head>
@@ -15,27 +13,7 @@ export default function Home() {
       </Head>
       <main className="grid grid-cols-5 h-[100%]">
         <Sidebar />
-        <div className="col-span-4 bg-main-bg-gray">
-          <div className="flex items-center p-10 w-full">
-            <p className="text-2xl font-semibold flex-1">Hello, Lauren! Welcome.</p>
-            <div className="flex items-center space-x-2 bg-white p-2 rounded-lg flex-1">
-              <Icon icon="codicon:search" />
-              <input
-                className="flex-1 outline-none"
-                onChange={(e) => setUserSearch(e.target.value)}
-                value={userSearch}
-                placeholder="Search for something here..."
-              />
-            </div>
-            <div className="flex items-center justify-center space-x-4">
-              <Icon
-                className="text-primary-blue bg-white rounded-full p-2 h-10 w-10"
-                icon="clarity:bell-outline-badged"
-              />
-              <div className="bg-gray-400 rounded-full w-16 h-16" />
-            </div>
-          </div>
-        </div>
+        <Discover />
       </main>
     </div>
   );

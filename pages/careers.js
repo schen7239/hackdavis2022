@@ -20,9 +20,9 @@ function Careers() {
 
   return (
     <div className="h-[100vh] select-none">
-      <main className="h-[100%] flex flexRow">
+      <main className="h-[100%] flex flexRow grid grid-cols-5">
         <Sidebar />
-        <div className="flex-1">
+        <div className="flex-1 col-span-4">
           <div className="mx-40 mt-20 flex-1 columns-3">
             <p
               onClick={() => setTab(OppuritunitiesTab)}
