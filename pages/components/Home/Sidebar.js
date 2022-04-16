@@ -7,7 +7,7 @@ function Sidebar() {
   const router = useRouter();
   return (
     <div className=" col-span-1 flex flex-col text-center bg-primary-blue">
-      <div className="pt-10 pb-12 ml-[30%]" >
+      <div className="pt-10 pb-12 ml-[31%]" >
         <Logo />
       </div>
       <div className="flex flex-col align-items flex-1 text-gray-500 space-y-2">
