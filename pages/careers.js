@@ -8,7 +8,7 @@ function Careers() {
   const OpportunitiesTab = "opputitunities tab";
   const CheckInsTab = "check ins tab";
   const ExercisesTab = "exercises tab";
-  const [tab, setTab] = useState(OppuritunitiesTab);
+  const [tab, setTab] = useState(OpportunitiesTab);
 
   function Reccomendation({ name, location }) {
     return (
@@ -74,9 +74,9 @@ function Careers() {
 
   return (
     <div className="h-[100vh] select-none bg-main-bg-gray">
-      <main className="h-[100%] grid grid-cols-5">
+      <main className="h-[100%] grid grid-cols-10">
         <Sidebar />
-        <div className="col-span-4">
+        <div className="col-span-9">
           <div className="mx-40 mt-20 flex-1 columns-3">
             <p
               onClick={() => setTab(OpportunitiesTab)}
