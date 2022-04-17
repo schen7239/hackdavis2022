@@ -10,6 +10,9 @@ import Title from "./Reusable/Title";
 import Subtitle from "./Reusable/Subtitle";
 import InfoBlock from "./Home/InfoBlock";
 import IconWithDescription from "./Home/IconWithDescription";
+import MessageBar from "./Messages/MessageBar";
+import MessageTopBar from "./Messages/MessageTopBar";
+import Message from "./Messages/Message";
 
 export {
   Sidebar,
@@ -24,4 +27,7 @@ export {
   Subtitle,
   IconWithDescription,
   ExerciseProgress,
+  MessageBar,
+  MessageTopBar,
+  Message,
 };
