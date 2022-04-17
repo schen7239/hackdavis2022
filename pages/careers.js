@@ -39,16 +39,16 @@ function Careers() {
     const [filterParams, setFilterParams] = useState([]);
     let filteredInternships = Internships.filter(
       (internship) =>
-        (internship.title.toLowerCase().includes(filterParams[0]) && internship.location.toLowerCase().includes(filterParams[1]) && internship.title.toLowerCase().includes(filterParams[2]))
+        internship.title.toLowerCase().includes(filterParams[0]) &&
+        internship.location.toLowerCase().includes(filterParams[1]) &&
+        internship.title.toLowerCase().includes(filterParams[2])
     );
     switch (tab) {
       case OpportunitiesTab:
         return (
           <div className="grid grid-cols-2 bg-gray-100 mx-20 mt-20 gap-8">
             <div>
-              <SearchBar
-                setFilterParams={setFilterParams}
-              />
+              <SearchBar setFilterParams={setFilterParams} />
               <div className="mt-10">
                 {filteredInternships?.map(
                   ({ title, posted, description, isInternship, isInPerson }) => (
@@ -140,7 +140,7 @@ function Careers() {
       <main className="h-[100%] grid grid-cols-10">
         <Sidebar />
         <div className="col-span-9">
-          <div className="mx-40 mt-20 width-full grid grid-cols-3">
+          <div className="px-40 pt-16 pb-8 width-full grid grid-cols-3 bg-white border-2 border-main-bg-gray">
             {tab === OpportunitiesTab ? (
               <div className="border-b-4 b border-primary-blue">
                 <p
