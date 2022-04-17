@@ -23,7 +23,9 @@ function Sidebar() {
         >
           <Icon icon="ic:outline-business-center" color="white"  height={24} width={24} />
         </div>
-        <div className="flex items-center justify-center space-x-4 hover:bg-[#1971D0] p-3">
+        <div 
+        onClick={() => router.push('/findMentor')}
+        className="flex items-center justify-center space-x-4 hover:bg-[#1971D0] p-3">
           <Icon icon="cil:people" height={24} width={24} color="white"  />
         </div>
       </div>
