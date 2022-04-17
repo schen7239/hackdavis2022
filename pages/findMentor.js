@@ -60,28 +60,28 @@ function FindMentor() {
             Ready to get match? Answer a few short question.
           </h2>
           <div className="grid justify-center mt-10 space-y-4">
-            <div className="bg-white p-10 w-[60rem] rounded-lg">
+            <div className="bg-white p-10 w-[60rem] rounded-lg shadow-md">
             <RadioButtonsGroup
               question="What is your preferred tech field?"
               inputArray={["UI/UX Design", "Web Developer", "Data Science"]}
               setFunction={setPreferredTechField}
             />
             </div>
-            <div className="bg-white p-10 w-[60rem] rounded-lg">
+            <div className="bg-white p-10 w-[60rem] rounded-lg shadow-md">
             <RadioButtonsGroup
               question="What soft skills do you want to gain?"
               inputArray={["Problem Solving", "Communicating", "Leadership"]}
               setFunction={setSoftSkills}
             />
             </div>
-            <div className="bg-white p-10 w-[60rem] rounded-lg">
+            <div className="bg-white p-10 w-[60rem] rounded-lg shadow-md">
             <RadioButtonsGroup
               question="What are you looking for in a mentor?"
               inputArray={["Empathy", "Guidance", "Attention to Detail"]}
               setFunction={setMentorSkills}
             />
             </div>
-            <div className="bg-white p-10 w-[60rem] rounded-lg space-y-2">
+            <div className="bg-white p-10 w-[60rem] rounded-lg space-y-2 shadow-md">
               <h1 className="font-semibold">What do you like to do for fun?</h1>
               <div className="border b-2 rounded-xl px-3 py-1">
               <input className="outline-none w-full" onChange={(e) => setUserWrittenResponse(e.target.value)} value={userWrittenResponse} />

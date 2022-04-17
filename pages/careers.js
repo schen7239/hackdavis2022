@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Sidebar, SearchBar } from "./components";
 import Internships from "./data/internships.json";
 import Recommendations from "./data/reccomended.json";
@@ -9,10 +9,13 @@ import {
   InfoBlock,
   IconWithDescription,
 } from "./components/index";
+import { Icon } from "@iconify/react";
+import { RangeDatePicker } from "react-google-flight-datepicker";
+import "react-google-flight-datepicker/dist/main.css";
 
 function Careers() {
   const OpportunitiesTab = "opputitunities tab";
-  const CheckInsTab = "check ins tab";
+  const ConnectTab = "connect tab";
   const ExercisesTab = "exercises tab";
   const [tab, setTab] = useState(OpportunitiesTab);
 
@@ -31,6 +34,9 @@ function Careers() {
   }
 
   function DisplayTab() {
+    const [startDate, setStartDate] = useState(Date.now());
+    const [endDate, setEndDate] = useState(Date.now);
+    const [isCalendarOpen, setIsCalendarOpen] = useState(false);
     switch (tab) {
       case OpportunitiesTab:
         return (
@@ -39,7 +45,13 @@ function Careers() {
               <SearchBar />
               <div className="mt-10">
                 {Internships?.map(
-                  ({ title, posted, description, isInternship, isInPerson }) => (
+                  ({
+                    title,
+                    posted,
+                    description,
+                    isInternship,
+                    isInPerson,
+                  }) => (
                     <UserJobCard
                       key={title}
                       title={title}
@@ -90,7 +102,9 @@ function Careers() {
                       key={index}
                       title={title}
                       subtitle={location}
-                      icon={<div className="h-12 w-12 rounded-full bg-blue-100" />}
+                      icon={
+                        <div className="h-12 w-12 rounded-full bg-blue-100" />
+                      }
                     />
                   ))}
                 </div>
@@ -98,8 +112,29 @@ function Careers() {
             </div>
           </div>
         );
-      case CheckInsTab:
-        return <div>hi2</div>;
+      case ConnectTab:
+        return (
+          <div className="grid grid-cols-6">
+            <div className=" col-start-2 col-span-4 bg-white rounded-full mt-6 px-6 h-16 border-2 flex justify-between items-center space-x-6">
+              <h1 className="font-semibold text-lg text-primary-blue">
+                Elementee.
+              </h1>
+              <input
+                className="w-[10rem] flex-1 outline-none h-full px-4 rounded-full focus:shadow-xl"
+                placeholder="Start Date"
+              />
+              <input
+                className="w-[10rem] flex-1 outline-none h-full px-4 rounded-full focus:shadow-xl"
+                placeholder="End Date"
+              />
+              <button className="bg-primary-blue w-12 h-12 rounded-full flex items-center justify-center active:scale-90 transition duration-150 ease-out">
+                <Icon className="h-6 w-6 text-white" icon="carbon:search" />
+              </button>
+            </div>
+            <div className="grid">
+            </div>
+          </div>
+        );
       case ExercisesTab:
         return <div>hi3</div>;
     }
@@ -118,10 +153,10 @@ function Careers() {
               Opportunities
             </p>
             <p
-              onClick={() => setTab(CheckInsTab)}
+              onClick={() => setTab(ConnectTab)}
               className="flex justify-center text-2xl font-semibold"
             >
-              Check-ins
+              Connect
             </p>
             <p
               onClick={() => setTab(ExercisesTab)}
