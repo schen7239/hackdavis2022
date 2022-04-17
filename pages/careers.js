@@ -115,7 +115,7 @@ function Careers() {
       case ConnectTab:
         return (
           <div className="grid grid-cols-6">
-            <div className=" col-start-2 col-span-4 bg-white rounded-full mt-6 px-6 h-16 border-2 flex justify-between items-center space-x-6">
+            <div className="col-start-2 col-span-4 bg-white rounded-full mt-6 px-6 h-16 border-2 flex justify-between items-center space-x-6">
               <h1 className="font-semibold text-lg text-primary-blue">
                 Elementee.
               </h1>
