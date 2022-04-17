@@ -29,7 +29,7 @@ function UserProfile() {
         <UserSettings />
         <div className="mt-6">
           <h1 className="font-medium text-xl pb-5">My Profile</h1>
-          <InfoBlock className="flex flex-col gap-y-4">
+          <InfoBlock className="flex flex-col gap-y-8">
             <div className="flex items-center space-x-4">
               <div className="bg-gray-300 h-16 w-16 rounded-full" />
               <div className="flex flex-col justify-center">
@@ -37,20 +37,20 @@ function UserProfile() {
                 <p className="text-gray-400 text-sm">UI/UX Designer</p>
               </div>
             </div>
-            <div>
+            <div className="mt-4">
               <h2 className="text-sm font-semibold pb-2">Mentor Feedback:</h2>
               <div className="flex gap-6 text-center text-sm font-light">
                 <p className="bg-button-gray px-2 py-1 rounded-xl">
-                  “Great job on your recent project for class! I love how you laid out
-                  each step of the design process in detail.”
+                  “Great job on your recent project for class! I love how you
+                  laid out each step of the design process in detail.”
                 </p>
                 <p className="bg-button-gray px-2 py-1 rounded-xl">
-                  “Amazing work on the hw exercise! I can see your progression as you
-                  complete these new assignments.
+                  “Amazing work on the hw exercise! I can see your progression
+                  as you complete these new assignments.
                 </p>
               </div>
             </div>
-            <div>
+            <div className="mt-4">
               <h2 className="text-sm font-semibold pb-2">Achievements: </h2>
               <div className="flex space-x-8">
                 {badgeData?.map(({ title, icon }, index) => (
@@ -69,7 +69,9 @@ function UserProfile() {
                         color={`${index % 2 == 0 ? "white" : "#3C8BE0"}`}
                       />
                     </div>
-                    <p className="text-center text-sm font-semibold pt-2">{title}</p>
+                    <p className="text-center text-sm font-semibold pt-2">
+                      {title}
+                    </p>
                   </div>
                 ))}
               </div>
