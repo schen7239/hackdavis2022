@@ -12,6 +12,7 @@ module.exports = {
         "button-teal": "#72B8AB",
         "light-blue": "#B0E1FF",
         "card-white": "#FFFFFF",
+        "messages-gray": "#E5E5E5",
       },
     },
   },

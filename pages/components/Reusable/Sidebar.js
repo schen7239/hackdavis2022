@@ -6,7 +6,7 @@ import { Logo } from "../../../public/svg/index";
 function Sidebar() {
   const router = useRouter();
   return (
-    <div className=" col-span-1 flex flex-col text-center bg-primary-blue">
+    <div className=" col-span-1 flex flex-col text-center bg-primary-blue h-[100%]">
       <div className="pt-10 pb-12 flex justify-center">
         <Logo />
       </div>
@@ -25,6 +25,12 @@ function Sidebar() {
         </div>
         <div className="flex items-center justify-center space-x-4 hover:bg-[#1971D0] p-3">
           <Icon icon="cil:people" height={24} width={24} color="white" />
+        </div>
+        <div
+          onClick={() => router.push("/messages")}
+          className="flex items-center justify-center space-x-4 hover:bg-[#1971D0] p-3"
+        >
+          <Icon icon="bx:message-rounded" height={24} width={24} color="white" />
         </div>
       </div>
       <div className="flex items-center justify-center space-x-4 mb-5 text-gray-500 hover:bg-[#1971D0] p-3">
