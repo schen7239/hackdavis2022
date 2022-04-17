@@ -29,7 +29,7 @@ function SavedJobs() {
           Hello, Lauren! Welcome.
         </p>
         <div className="mt-10">
-          <h1 className="font-medium text-xl">Saved Jobs</h1>
+          <h1 className="font-medium text-xl pb-5">Saved Jobs</h1>
           {Internships.slice(0, 3).map(
             ({ title, posted, description, isInternship, isInPerson }) => (
               <UserJobCard

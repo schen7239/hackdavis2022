@@ -36,22 +36,21 @@ function Careers() {
     const [startDate, setStartDate] = useState(Date.now());
     const [endDate, setEndDate] = useState(Date.now);
     const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-    const [filterParams, setFilterParams] = useState([]);
-    let filteredInternships = Internships.filter(
-      (internship) =>
-        internship.title.toLowerCase().includes(filterParams[0]) &&
-        internship.location.toLowerCase().includes(filterParams[1]) &&
-        internship.title.toLowerCase().includes(filterParams[2])
-    );
     switch (tab) {
       case OpportunitiesTab:
         return (
-          <div className="grid grid-cols-2 bg-gray-100 mx-20 mt-20 gap-8">
+          <div className="grid grid-cols-2 bg-gray-100 mx-20 mt-4 gap-8">
             <div>
-              <SearchBar setFilterParams={setFilterParams} />
-              <div className="mt-10">
+              <div className="">
                 {filteredInternships?.map(
-                  ({ title, posted, description, isInternship, isInPerson }) => (
+                  ({
+                    title,
+                    posted,
+                    description,
+                    location,
+                    isInternship,
+                    isInPerson,
+                  }) => (
                     <UserJobCard
                       key={title}
                       title={title}
@@ -59,11 +58,12 @@ function Careers() {
                       description={description}
                       isInternship={isInternship}
                       isInPerson={isInPerson}
+                      location={location}
                     />
                   )
                 )}
               </div>
-              <InfoBlock className="mt-5">
+              <InfoBlock className="">
                 <div className="flex flexRow items-center justify-between">
                   <div>
                     <Title>Put your best foot forward</Title>
@@ -92,7 +92,7 @@ function Careers() {
                   ))}
                 </div>
               </InfoBlock>
-              <InfoBlock className="mt-4">
+              <InfoBlock className="my-4">
                 <Title>Similar jobs for you</Title>
                 <Subtitle>Based off the jobs you saved recently</Subtitle>
                 <div className="mt-10">
@@ -135,12 +135,20 @@ function Careers() {
     }
   }
 
+  const [filterParams, setFilterParams] = useState([]);
+  let filteredInternships = Internships.filter(
+    (internship) =>
+      internship.title.toLowerCase().includes(filterParams[0]) &&
+      internship.location.toLowerCase().includes(filterParams[1]) &&
+      internship.title.toLowerCase().includes(filterParams[2])
+  );
+
   return (
     <div className="h-[100vh] select-none bg-main-bg-gray">
       <main className="h-[100%] grid grid-cols-10">
         <Sidebar />
         <div className="col-span-9">
-          <div className="px-40 pt-16 pb-8 width-full grid grid-cols-3 bg-white border-2 border-main-bg-gray">
+          <div className="px-40 pt-16 pb-8 width-full grid grid-cols-3 bg-white border-4 border-main-bg-gray">
             {tab === OpportunitiesTab ? (
               <div className="border-b-4 b border-primary-blue">
                 <p
@@ -192,6 +200,9 @@ function Careers() {
                 Exercises
               </p>
             )}
+          </div>
+          <div className="px-16 py-10 bg-white">
+            <SearchBar setFilterParams={setFilterParams} />
           </div>
           <DisplayTab />
         </div>

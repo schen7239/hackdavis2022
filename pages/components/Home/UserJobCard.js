@@ -7,14 +7,14 @@ import {
   RectangleButton,
 } from "../../components/index";
 
-function UserJobCard({ title, posted, description, isInternship, isInPerson }) {
+function UserJobCard({ title, posted, description, isInternship, isInPerson, location }) {
   return (
-    <InfoBlock className="mt-5">
+    <InfoBlock className="mb-5">
       <div className="flex">
         <div className="flex flex-col flex-1 gap-4">
           <IconWithDescription
             title={title}
-            subtitle={posted}
+            subtitle={location}
             icon={<div className="h-12 w-12 rounded-full bg-blue-100" />}
           />
           <div className="flex space-x-4">
@@ -39,16 +39,8 @@ function UserJobCard({ title, posted, description, isInternship, isInPerson }) {
           </div>
         </div>
         <div className="space-y-2 text-center flex flex-col">
-          <RectangleButton
-            color="primary-blue"
-            textColor="white"
-            text="Apply Now"
-          />
-          <RectangleButton
-            color="button-gray"
-            textColor="black"
-            text="Contact"
-          />
+          <RectangleButton color="primary-blue" textColor="white" text="Apply Now" />
+          <RectangleButton color="button-gray" textColor="black" text=" Contact " />
         </div>
       </div>
       <div className="py-3 text-xs font-medium">{description}</div>
