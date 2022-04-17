@@ -148,7 +148,7 @@ function Careers() {
       <main className="h-[100%] grid grid-cols-10">
         <Sidebar />
         <div className="col-span-9">
-          <div className="px-40 pt-16 pb-8 width-full grid grid-cols-3 bg-white border-4 border-main-bg-gray">
+          <div className="px-40 pt-16 pb-8 width-full grid grid-cols-3 bg-white border-4 border-main-bg-gray shadow-md">
             {tab === OpportunitiesTab ? (
               <div className="border-b-4 b border-primary-blue">
                 <p
