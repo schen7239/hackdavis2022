@@ -37,13 +37,17 @@ function Careers() {
     const [endDate, setEndDate] = useState(Date.now);
     const [isCalendarOpen, setIsCalendarOpen] = useState(false);
     const [filteredJobsData, setFilteredJobsData] = useState([]);
+    const [roleData, setRoleData] = useState([]);
     let filteredInternships = Internships.filter(
       (internship) =>
         (filteredJobsData.includes("Remote") && internship.title.search("Remote") >= 0) ||
         (filteredJobsData.includes("In-Person") &&
-          internship.title.search("In-Person") >= 0)
+          internship.title.search("In-Person") >= 0) || (roleData.includes("design") && internship.title.includes("Design")) ||
+          (roleData.includes("engineer") &&
+            internship.title.includes("Engineer")) ||
+            (roleData.includes("develop") &&
+              internship.title.includes("Develop"))
     );
-    console.log(filteredInternships);
     switch (tab) {
       case OpportunitiesTab:
         return (
@@ -52,6 +56,8 @@ function Careers() {
               <SearchBar
                 filteredJobsData={filteredJobsData}
                 setFilteredJobsData={setFilteredJobsData}
+                roleData={roleData}
+                setRoleData={setRoleData}
               />
               <div className="mt-10">
                 {filteredInternships?.map(

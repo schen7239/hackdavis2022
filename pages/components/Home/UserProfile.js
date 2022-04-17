@@ -29,7 +29,7 @@ function UserProfile() {
         <UserSettings />
         <div className="mt-6">
           <h1 className="font-medium text-xl pb-5">My Profile</h1>
-          <InfoBlock className="flex flex-col gap-y-4">
+          <InfoBlock className="flex flex-col gap-y-8">
             <div className="flex items-center space-x-4">
               <div className="bg-gray-300 h-16 w-16 rounded-full" />
               <div className="flex flex-col justify-center">

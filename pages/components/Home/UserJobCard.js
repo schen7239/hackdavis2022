@@ -39,8 +39,16 @@ function UserJobCard({ title, posted, description, isInternship, isInPerson }) {
           </div>
         </div>
         <div className="space-y-2 text-center flex flex-col">
-          <RectangleButton color="primary-blue" textColor="white" text="Apply Now" />
-          <RectangleButton color="button-gray" textColor="black" text="Contact" />
+          <RectangleButton
+            color="primary-blue"
+            textColor="white"
+            text="Apply Now"
+          />
+          <RectangleButton
+            color="button-gray"
+            textColor="black"
+            text="Contact"
+          />
         </div>
       </div>
       <div className="py-3 text-xs font-medium">{description}</div>
