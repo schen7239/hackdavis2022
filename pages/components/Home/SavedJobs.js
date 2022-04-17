@@ -25,10 +25,12 @@ function SavedJobs() {
   return (
     <>
       <div className="col-span-1 p-10">
-        <p className="text-2xl font-semibold flex-1 text-primary-blue">Hello, Lauren! Welcome.</p>
+        <p className="text-2xl font-semibold flex-1 text-primary-blue">
+          Hello, Lauren! Welcome.
+        </p>
         <div className="mt-10">
           <h1 className="font-medium text-xl">Saved Jobs</h1>
-          {Internships?.map(
+          {Internships.slice(0, 3).map(
             ({ title, posted, description, isInternship, isInPerson }) => (
               <UserJobCard
                 key={title}

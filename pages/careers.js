@@ -10,7 +10,6 @@ import {
   IconWithDescription,
 } from "./components/index";
 import { Icon } from "@iconify/react";
-import { RangeDatePicker } from "react-google-flight-datepicker";
 import "react-google-flight-datepicker/dist/main.css";
 
 function Careers() {
@@ -101,7 +100,7 @@ function Careers() {
                 <Title>Similar jobs for you</Title>
                 <Subtitle>Based off the jobs you saved recently</Subtitle>
                 <div className="mt-10">
-                  {Internships?.map(({ title, location }, index) => (
+                  {Internships.slice(5, 8).map(({ title, location }, index) => (
                     <IconWithDescription
                       className="mt-8"
                       key={index}

@@ -59,8 +59,52 @@ function Messages() {
     restart(newTime);
   }
 
+  const customStyles = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      height: 500,
+      width: 700,
+    },
+  };
+
   return (
     <div className="h-[100vh] select-none bg-main-bg-gray">
+      <Modal style={customStyles} isOpen={modalIsOpen}>
+        <div className="flex-col flex items-center">
+          <div className="flex w-[100%]">
+            <Icon
+              onClick={() => setModalIsOpen(false)}
+              height={30}
+              width={30}
+              color="#3C8BE0"
+              icon="eva:arrow-ios-back-fill"
+            />
+          </div>
+          <p className="text-2xl mt-8">Do you want to confirm Martha as your mentor?</p>
+          <div className="flex gap-4 mt-8">
+            <RectangleButton
+              text="Connect"
+              textColor="white"
+              color="primary-blue"
+              onClick={() => router.push("/")}
+            />
+            <RectangleButton
+              text="Maybe Later"
+              textColor="red-500"
+              color="red-200"
+              onClick={() => router.push("/")}
+            />
+          </div>
+
+          <p className="text-2xl mt-12 mb-8">Please upload your resume.</p>
+          <RectangleButton text="Upload" textColor="white" color="primary-blue" />
+        </div>
+      </Modal>
       <main className="h-[100%] grid grid-cols-10">
         <Sidebar />
         <MessageTopBar />
@@ -70,7 +114,12 @@ function Messages() {
           ))}
           <div className="flex justify-center">
             <div className="flex flexColumn items-center gap-4">
-              <RectangleButton text="Connect" textColor="white" color="primary-blue" />
+              <RectangleButton
+                text="Connect"
+                textColor="white"
+                color="primary-blue"
+                onClick={() => setModalIsOpen(true)}
+              />
               <div className="h-24 w-24 rounded-full bg-white border-8 flex items-center justify-center">
                 <p className="text-4xl text-primary-blue font-semibold">{seconds}</p>
               </div>
@@ -101,18 +150,6 @@ function Messages() {
             icon="fluent:send-16-regular"
           />
         </MessageBar>
-        <Modal className="" isOpen={modalIsOpen} contentLabel="Example Modal">
-          <h2>Hello</h2>
-          <button onClick={() => setModalIsOpen(false)}>close</button>
-          <div>I am a modal</div>
-          <form>
-            <input />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
-          </form>
-        </Modal>
       </main>
     </div>
   );
