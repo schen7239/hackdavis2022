@@ -9,7 +9,7 @@ function Discover() {
         <UserProfile />
       </div>
       <div className="px-10 pb-10">
-          <ExerciseProgress />
+        <ExerciseProgress />
       </div>
     </div>
   );
