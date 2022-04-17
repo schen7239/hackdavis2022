@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
-import { Sidebar, MessageBar, MessageTopBar, Message } from "./components";
+import {
+  Sidebar,
+  MessageBar,
+  MessageTopBar,
+  Message,
+  RectangleButton,
+} from "./components";
 import { useTimer } from "react-timer-hook";
+import { useRouter } from "next/dist/client/router";
 
 const mentorMessages = [
   "What do you like to do for fun?",
@@ -13,6 +20,7 @@ function Messages() {
   const [messagesRecieved, setMessagesRecieved] = useState([]);
   const [messageReciepts, setMessageReciepts] = useState([]);
   const [message, setMessage] = useState("");
+  const router = useRouter();
 
   const time = new Date();
   time.setSeconds(time.getSeconds() + 30);
@@ -59,10 +67,17 @@ function Messages() {
             <Message key={index} content={content} isRecieved={isRecieved} />
           ))}
           <div className="flex justify-center">
-            <div>
+            <div className="flex flexColumn items-center gap-4">
+              <RectangleButton text="Connect" textColor="white" color="primary-blue" />
               <div className="h-24 w-24 rounded-full bg-white border-8 flex items-center justify-center">
                 <p className="text-4xl text-primary-blue font-semibold">{seconds}</p>
               </div>
+              <RectangleButton
+                text="Maybe Later"
+                textColor="red-500"
+                color="red-200"
+                onClick={() => router.push("/")}
+              />
             </div>
           </div>
         </div>
