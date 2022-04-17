@@ -9,8 +9,8 @@ const mentorMessages = [
 ];
 
 function Messages() {
-  const [messagesSent, setMessagesSent] = useState([]);
   const [messagesRecieved, setMessagesRecieved] = useState([]);
+  const [messageReciepts, setMessageReciepts] = useState([]);
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -24,11 +24,17 @@ function Messages() {
   });
 
   function sendMessage() {
-    setMessagesSent([...messagesSent, message]);
-    setMessage("");
     if (messagesRecieved.length < mentorMessages.length) {
       setMessagesRecieved([...messagesRecieved, mentorMessages[messagesRecieved.length]]);
+      setMessageReciepts([
+        ...messageReciepts,
+        { content: message, isRecieved: false },
+        { content: mentorMessages[messagesRecieved.length], isRecieved: true },
+      ]);
+    } else {
+      setMessageReciepts([...messageReciepts, message]);
     }
+    setMessage("");
   }
 
   return (
@@ -36,9 +42,9 @@ function Messages() {
       <main className="h-[100%] grid grid-cols-10">
         <Sidebar />
         <MessageTopBar />
-        <div className="mt-32 col-span-9 ml-24">
-          {messagesSent.map((message, index) => (
-            <Message key={index} content={message} />
+        <div className="mt-32 col-span-9 mx-24">
+          {messageReciepts.map(({ content, isRecieved }, index) => (
+            <Message key={index} content={content} isRecieved={isRecieved} />
           ))}
         </div>
         <MessageBar>
