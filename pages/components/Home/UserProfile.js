@@ -38,7 +38,7 @@ function UserProfile() {
               </div>
             </div>
             <div>
-              <h2 className="text-sm font-semibold pb-2">Mentor Feedback:</h2>
+              <h2 className="text-sm font-semibold pb-2 mt-4">Mentor Feedback:</h2>
               <div className="flex gap-6 text-center text-sm font-light">
                 <p className="bg-button-gray px-2 py-1 rounded-xl">
                   “Great job on your recent project for class! I love how you laid out
@@ -51,7 +51,7 @@ function UserProfile() {
               </div>
             </div>
             <div>
-              <h2 className="text-sm font-semibold pb-2">Achievements: </h2>
+              <h2 className="text-sm font-semibold pb-2 mt-8">Achievements: </h2>
               <div className="flex space-x-8">
                 {badgeData?.map(({ title, icon }, index) => (
                   <div

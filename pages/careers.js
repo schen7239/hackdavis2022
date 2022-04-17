@@ -144,25 +144,58 @@ function Careers() {
       <main className="h-[100%] grid grid-cols-10">
         <Sidebar />
         <div className="col-span-9">
-          <div className="mx-40 mt-20 flex-1 columns-3">
-            <p
-              onClick={() => setTab(OpportunitiesTab)}
-              className="flex justify-center text-2xl font-semibold"
-            >
-              Opportunities
-            </p>
-            <p
-              onClick={() => setTab(ConnectTab)}
-              className="flex justify-center text-2xl font-semibold"
-            >
-              Connect
-            </p>
-            <p
-              onClick={() => setTab(ExercisesTab)}
-              className="flex justify-center text-2xl font-semibold"
-            >
-              Exercises
-            </p>
+          <div className="mx-40 mt-20 width-full grid grid-cols-3">
+            {tab === OpportunitiesTab ? (
+              <div className="border-b-4 b border-primary-blue">
+                <p
+                  onClick={() => setTab(OpportunitiesTab)}
+                  className="flex justify-center text-2xl font-semibold"
+                >
+                  Opportunities
+                </p>
+              </div>
+            ) : (
+              <p
+                onClick={() => setTab(OpportunitiesTab)}
+                className="flex justify-center text-2xl font-semibold"
+              >
+                Opportunities
+              </p>
+            )}
+            {tab === ConnectTab ? (
+              <div className="border-b-4 b border-primary-blue">
+                <p
+                  onClick={() => setTab(ConnectTab)}
+                  className="flex justify-center text-2xl font-semibold"
+                >
+                  Connect
+                </p>
+              </div>
+            ) : (
+              <p
+                onClick={() => setTab(ConnectTab)}
+                className="flex justify-center text-2xl font-semibold"
+              >
+                Connect
+              </p>
+            )}
+            {tab === ExercisesTab ? (
+              <div className="border-b-4 b border-primary-blue">
+                <p
+                  onClick={() => setTab(ExercisesTab)}
+                  className="flex justify-center text-2xl font-semibold"
+                >
+                  Exercises
+                </p>
+              </div>
+            ) : (
+              <p
+                onClick={() => setTab(ExercisesTab)}
+                className="flex justify-center text-2xl font-semibold"
+              >
+                Exercises
+              </p>
+            )}
           </div>
           <DisplayTab />
         </div>
