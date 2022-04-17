@@ -29,7 +29,7 @@ function UserProfile() {
         <UserSettings />
         <div className="mt-6">
           <h1 className="font-medium text-xl pb-5">My Profile</h1>
-            <div className="w-auto h-auto bg-white flex flex-col p-4 rounded-xl gap-y-2 shadow-md">
+            <div className="w-auto h-auto bg-white flex flex-col p-4 rounded-xl gap-y-4 shadow-md">
               <div className="flex items-center space-x-4">
                 <div className="bg-gray-300 h-16 w-16 rounded-full" />
                 <div className="flex flex-col">

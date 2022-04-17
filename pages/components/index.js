@@ -5,5 +5,5 @@ import SearchBar from "./Home/SearchBar";
 import UserSettings from "./Home/UserSettings";
 import SavedJobs from "./Home/SavedJobs";
 import UserProfile from "./Home/UserProfile";
-
-export { Sidebar, Discover, UserJobCard, SearchBar, UserSettings, SavedJobs, UserProfile };
+import ExerciseProgress from "./Home/ExerciseProgress";
+export { Sidebar, Discover, UserJobCard, SearchBar, UserSettings, SavedJobs, UserProfile, ExerciseProgress };

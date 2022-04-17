@@ -25,7 +25,7 @@ function SavedJobs() {
   return (
     <>
       <div className="col-span-1 p-10">
-        <p className="text-2xl font-semibold flex-1">Hello, Lauren! Welcome.</p>
+        <p className="text-2xl font-semibold flex-1 text-primary-blue">Hello, Lauren! Welcome.</p>
         <div className="mt-10">
           <h1 className="font-medium text-xl pb-4">Saved Jobs</h1>
           {data?.map(
