@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import React from "react";
 
+
 function SearchBar() {
   return (
     <div className="rounded-full bg-white shadow-md items-center flex flexRow p-2">
