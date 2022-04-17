@@ -32,7 +32,7 @@ function UserProfile() {
           <InfoBlock className="flex flex-col gap-y-4">
             <div className="flex items-center space-x-4">
               <div className="bg-gray-300 h-16 w-16 rounded-full" />
-              <div className="flex flex-col">
+              <div className="flex flex-col justify-center">
                 <h1 className="text-lg font-semibold">Lauren Outhabong</h1>
                 <p className="text-gray-400 text-sm">UI/UX Designer</p>
               </div>

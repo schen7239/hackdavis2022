@@ -37,14 +37,17 @@ function Careers() {
     const [startDate, setStartDate] = useState(Date.now());
     const [endDate, setEndDate] = useState(Date.now);
     const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+    const [filteredJobsData, setFilteredJobsData] = useState([]);
+    let filteredInternships = Internships.filter(internship => internship.title == filteredJobsData.map(item => item)[0])
+    console.log(filteredInternships)
     switch (tab) {
       case OpportunitiesTab:
         return (
           <div className="grid grid-cols-2 bg-gray-100 mx-20 mt-20 gap-8">
             <div>
-              <SearchBar />
+              <SearchBar filteredJobsData={filteredJobsData} setFilteredJobsData={setFilteredJobsData} />
               <div className="mt-10">
-                {Internships?.map(
+                {filteredInternships?.map(
                   ({
                     title,
                     posted,
@@ -115,7 +118,7 @@ function Careers() {
       case ConnectTab:
         return (
           <div className="grid grid-cols-6">
-            <div className=" col-start-2 col-span-4 bg-white rounded-full mt-6 px-6 h-16 border-2 flex justify-between items-center space-x-6">
+            <div className="col-start-2 col-span-4 bg-white rounded-full mt-6 px-6 h-16 border-2 flex justify-between items-center space-x-6">
               <h1 className="font-semibold text-lg text-primary-blue">
                 Elementee.
               </h1>
