@@ -38,23 +38,25 @@ function Careers() {
     const [endDate, setEndDate] = useState(Date.now);
     const [isCalendarOpen, setIsCalendarOpen] = useState(false);
     const [filteredJobsData, setFilteredJobsData] = useState([]);
-    let filteredInternships = Internships.filter(internship => internship.title == filteredJobsData.map(item => item)[0])
-    console.log(filteredInternships)
+    let filteredInternships = Internships.filter(
+      (internship) =>
+        (filteredJobsData.includes("Remote") && internship.title.search("Remote") >= 0) ||
+        (filteredJobsData.includes("In-Person") &&
+          internship.title.search("In-Person") >= 0)
+    );
+    console.log(filteredInternships);
     switch (tab) {
       case OpportunitiesTab:
         return (
           <div className="grid grid-cols-2 bg-gray-100 mx-20 mt-20 gap-8">
             <div>
-              <SearchBar filteredJobsData={filteredJobsData} setFilteredJobsData={setFilteredJobsData} />
+              <SearchBar
+                filteredJobsData={filteredJobsData}
+                setFilteredJobsData={setFilteredJobsData}
+              />
               <div className="mt-10">
                 {filteredInternships?.map(
-                  ({
-                    title,
-                    posted,
-                    description,
-                    isInternship,
-                    isInPerson,
-                  }) => (
+                  ({ title, posted, description, isInternship, isInPerson }) => (
                     <UserJobCard
                       key={title}
                       title={title}
@@ -105,9 +107,7 @@ function Careers() {
                       key={index}
                       title={title}
                       subtitle={location}
-                      icon={
-                        <div className="h-12 w-12 rounded-full bg-blue-100" />
-                      }
+                      icon={<div className="h-12 w-12 rounded-full bg-blue-100" />}
                     />
                   ))}
                 </div>
@@ -119,9 +119,7 @@ function Careers() {
         return (
           <div className="grid grid-cols-6">
             <div className="col-start-2 col-span-4 bg-white rounded-full mt-6 px-6 h-16 border-2 flex justify-between items-center space-x-6">
-              <h1 className="font-semibold text-lg text-primary-blue">
-                Elementee.
-              </h1>
+              <h1 className="font-semibold text-lg text-primary-blue">Elementee.</h1>
               <input
                 className="w-[10rem] flex-1 outline-none h-full px-4 rounded-full focus:shadow-xl"
                 placeholder="Start Date"
@@ -134,8 +132,7 @@ function Careers() {
                 <Icon className="h-6 w-6 text-white" icon="carbon:search" />
               </button>
             </div>
-            <div className="grid">
-            </div>
+            <div className="grid"></div>
           </div>
         );
       case ExercisesTab:
