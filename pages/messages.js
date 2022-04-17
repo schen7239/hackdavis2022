@@ -9,6 +9,7 @@ import {
 } from "./components";
 import { useTimer } from "react-timer-hook";
 import { useRouter } from "next/dist/client/router";
+import Modal from "react-modal";
 
 const mentorMessages = [
   "What do you like to do for fun?",
@@ -20,6 +21,7 @@ function Messages() {
   const [messagesRecieved, setMessagesRecieved] = useState([]);
   const [messageReciepts, setMessageReciepts] = useState([]);
   const [message, setMessage] = useState("");
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const router = useRouter();
 
   const time = new Date();
@@ -27,7 +29,7 @@ function Messages() {
 
   const { seconds, restart } = useTimer({
     time,
-    onExpire: () => console.warn("onExpire called"),
+    onExpire: () => setModalIsOpen(true),
   });
 
   useEffect(() => {
@@ -99,6 +101,18 @@ function Messages() {
             icon="fluent:send-16-regular"
           />
         </MessageBar>
+        <Modal className="" isOpen={modalIsOpen} contentLabel="Example Modal">
+          <h2>Hello</h2>
+          <button onClick={() => setModalIsOpen(false)}>close</button>
+          <div>I am a modal</div>
+          <form>
+            <input />
+            <button>tab navigation</button>
+            <button>stays</button>
+            <button>inside</button>
+            <button>the modal</button>
+          </form>
+        </Modal>
       </main>
     </div>
   );
