@@ -37,14 +37,17 @@ function Careers() {
     const [startDate, setStartDate] = useState(Date.now());
     const [endDate, setEndDate] = useState(Date.now);
     const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+    const [filteredJobsData, setFilteredJobsData] = useState([]);
+    let filteredInternships = Internships.filter(internship => internship.title == filteredJobsData.map(item => item)[0])
+    console.log(filteredInternships)
     switch (tab) {
       case OpportunitiesTab:
         return (
           <div className="grid grid-cols-2 bg-gray-100 mx-20 mt-20 gap-8">
             <div>
-              <SearchBar />
+              <SearchBar filteredJobsData={filteredJobsData} setFilteredJobsData={setFilteredJobsData} />
               <div className="mt-10">
-                {Internships?.map(
+                {filteredInternships?.map(
                   ({
                     title,
                     posted,

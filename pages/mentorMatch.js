@@ -53,8 +53,8 @@ function MentorMatch() {
           Thanks for filling out the questionaire!
         </h1>
         <h2 className="font-light text-sm text-gray-400">
-          You have been paired with 9 recommended mentors. Chat with a couple to
-          establish your best fit!
+          You have been paired with 9 recommended mentors. Chat with a couple to establish
+          your best fit!
         </h2>
         <div className="grid grid-cols-3 grid-auto mt-10 w-full gap-x-10 gap-y-10 px-20">
           {mentorsData?.map(({name, description}, index) => (
