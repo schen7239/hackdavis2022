@@ -13,6 +13,7 @@ import IconWithDescription from "./Home/IconWithDescription";
 import MessageBar from "./Messages/MessageBar";
 import MessageTopBar from "./Messages/MessageTopBar";
 import Message from "./Messages/Message";
+import RectangleButton from "./Reusable/RectangleButton";
 
 export {
   Sidebar,
@@ -30,4 +31,5 @@ export {
   MessageBar,
   MessageTopBar,
   Message,
+  RectangleButton,
 };

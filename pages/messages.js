@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import { Sidebar, MessageBar, MessageTopBar, Message } from "./components";
+import { useTimer } from "react-timer-hook";
 
 const mentorMessages = [
   "What do you like to do for fun?",
@@ -12,6 +13,14 @@ function Messages() {
   const [messagesRecieved, setMessagesRecieved] = useState([]);
   const [messageReciepts, setMessageReciepts] = useState([]);
   const [message, setMessage] = useState("");
+
+  const time = new Date();
+  time.setSeconds(time.getSeconds() + 30);
+
+  const { seconds, restart } = useTimer({
+    time,
+    onExpire: () => console.warn("onExpire called"),
+  });
 
   useEffect(() => {
     var input = document.getElementById("message input");
@@ -34,7 +43,10 @@ function Messages() {
     } else {
       setMessageReciepts([...messageReciepts, message]);
     }
+    const newTime = new Date();
+    newTime.setSeconds(newTime.getSeconds() + 30);
     setMessage("");
+    restart(newTime);
   }
 
   return (
@@ -46,6 +58,13 @@ function Messages() {
           {messageReciepts.map(({ content, isRecieved }, index) => (
             <Message key={index} content={content} isRecieved={isRecieved} />
           ))}
+          <div className="flex justify-center">
+            <div>
+              <div className="h-24 w-24 rounded-full bg-white border-8 flex items-center justify-center">
+                <p className="text-4xl text-primary-blue font-semibold">{seconds}</p>
+              </div>
+            </div>
+          </div>
         </div>
         <MessageBar>
           <input

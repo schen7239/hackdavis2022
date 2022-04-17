@@ -1,5 +1,11 @@
 import React from "react";
-import { Title, Subtitle, InfoBlock, IconWithDescription } from "../../components/index";
+import {
+  Title,
+  Subtitle,
+  InfoBlock,
+  IconWithDescription,
+  RectangleButton,
+} from "../../components/index";
 
 function UserJobCard({ title, posted, description, isInternship, isInPerson }) {
   return (
@@ -33,12 +39,8 @@ function UserJobCard({ title, posted, description, isInternship, isInPerson }) {
           </div>
         </div>
         <div className="space-y-2 text-center flex flex-col">
-          <button className="w-auto h-auto text-white bg-primary-blue rounded-2xl px-2 py-1 text-xs font-medium active:scale-90 transition duration-150 ease-out">
-            Apply Now
-          </button>
-          <button className="w-auto h-auto bg-button-gray rounded-2xl px-2 py-1 text-xs font-medium active:scale-90 transition duration-150 ease-out">
-            Contact
-          </button>
+          <RectangleButton color="primary-blue" textColor="white" text="Apply Now" />
+          <RectangleButton color="button-gray" textColor="black" text="Contact" />
         </div>
       </div>
       <div className="py-3 text-xs font-medium">{description}</div>
