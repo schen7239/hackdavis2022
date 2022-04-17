@@ -31,7 +31,7 @@ function ExerciseProgress() {
                 </TabList>
                 <div className="p-8" >
                 <TabPanel>
-                  <div className="space-y-8 text-sm">
+                  <div className="space-y-8 text-sm py-4">
                     <h2>Total Exercises: <span className="text-primary-blue">10</span></h2>
                     <h2>Hours spent on exercises: <span className="text-primary-blue">28</span></h2>
                     <h2>Improvement over 2 weeks: <span className="text-primary-blue">4.78%</span></h2>
@@ -58,6 +58,11 @@ function ExerciseProgress() {
                 <div className="flex-1 space-y-2"> 
                   <h1 className="text-sm">Progress: <span className="text-primary-blue">{percentCompleted}%</span> completed</h1>
                   <div className="w-full h-4 bg-white rounded-lg"><div style={{width: `${percentCompleted}%`}} className={`h-4 bg-light-blue rounded-lg`} ></div></div>
+                  <div className='flex justify-between text-xs text-gray-500'>
+                        <p>Intro</p>
+                        <p>Exercises</p>
+                        <p>End</p>
+                </div>
                 </div>
               </div>
             ))}
