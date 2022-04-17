@@ -51,7 +51,7 @@ function Careers() {
                   )
                 )}
               </div>
-              <InfoBlock>
+              <InfoBlock className="mt-5">
                 <div className="flex flexRow items-center justify-between">
                   <div>
                     <Title>Put your best foot forward</Title>
