@@ -1,92 +1,46 @@
 import { Icon } from "@iconify/react";
 import React, { useState } from "react";
 
-function SearchBar({
-  filteredJobsData,
-  setFilteredJobsData,
-  roleData,
-  setRoleData,
-}) {
-  const handleChange = (e) => {
-    let newArray = [...filteredJobsData];
-    let index = newArray.find((element) => element == e.target.value);
-    if (index == undefined)
-      return setFilteredJobsData([...newArray, e.target.value]);
-    setFilteredJobsData([
-      ...newArray.filter((element) => element != e.target.value),
-    ]);
-  };
-  const handleRoleChange = (e) => {
-    let newArray = [...roleData];
-    let index = newArray.find((element) => element == e.target.value);
-    if (index == undefined) return setRoleData([...newArray, e.target.value]);
-    setRoleData([...newArray.filter((element) => element != e.target.value)]);
-  };
+function SearchBar({ setFilterParams }) {
+  const [career, setCareer] = useState("");
+  const [location, setLocation] = useState("");
+  const [term, setTerm] = useState("");
   return (
     <>
-      <div className="rounded-full bg-white shadow-md items-center flex flexRow p-2">
-        <div className="rounded-full bg-primary-blue py-3 px-5">
+      <div className="rounded-full bg-white shadow-md items-center py-1 flex h-auto w-full overflow-hidden px-2 space-x-2">
+        <button
+          onClick={() => {
+            setFilterParams([
+              career.toLowerCase(),
+              location.toLowerCase(),
+              term.toLowerCase(),
+            ]);
+          }}
+          className="rounded-full bg-primary-blue p-3"
+        >
           <Icon icon="codicon:search" color="white" />
-        </div>
-        <div className="flex flex-col w-full">
-          <div className="flex justify-around w-full">
-            <div>
-              <p className="flex justify-center content-center">Field</p>
-            </div>
-            <div>
-              <p className="flex justify-center content-center">Location</p>
-            </div>
-            <div>
-              <p className="flex justify-center content-center">Term</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="bg-white rounded-lg mt-5 p-4 shadow-md">
-        <div className="flex justify-around">
-          <div className="flex flex-col">
-            <h1 className="text-sm text-primary-blue">Remote/In-Person</h1>
-            <label>
-              <input type="checkbox" onChange={handleChange} value="Remote" />
-              Remote
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                onChange={handleChange}
-                value="In-Person"
-              />
-              In-Person
-            </label>
-          </div>
-          <div className="flex flex-col">
-            <h1 className="text-sm text-primary-blue">Roles</h1>
-            <label>
-              <input
-                onClick={handleRoleChange}
-                type="checkbox"
-                value="develop"
-              />
-              Software Developer
-            </label>
-            <label>
-              <input
-                onClick={handleRoleChange}
-                type="checkbox"
-                value="engineer"
-              />
-              Software Engineer
-            </label>
-            <label>
-              <input
-                onClick={handleRoleChange}
-                type="checkbox"
-                value="design"
-              />
-              UI/UX Designer
-            </label>
-          </div>
-        </div>
+        </button>
+        <input
+          onChange={(e) => setCareer(e.target.value)}
+          className="flex justify-center content-center outline-none"
+          value={career}
+          type="text"
+          placeholder="Career Field"
+        />
+        <input
+          onChange={(e) => setLocation(e.target.value)}
+          className="flex justify-center content-center outline-none"
+          value={location}
+          type="text"
+          placeholder="Location"
+        />
+        <input
+          onChange={(e) => setTerm(e.target.value)}
+          className="flex justify-center content-center outline-none"
+          value={term}
+          type="text"
+          placeholder="Term"
+        />
       </div>
     </>
   );
