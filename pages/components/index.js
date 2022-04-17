@@ -5,6 +5,7 @@ import SearchBar from "./Home/SearchBar";
 import UserSettings from "./Home/UserSettings";
 import SavedJobs from "./Home/SavedJobs";
 import UserProfile from "./Home/UserProfile";
+import ExerciseProgress from "./Home/ExerciseProgress";
 import Title from "./Home/Title";
 import Subtitle from "./Subtitle";
 import InfoBlock from "./Home/InfoBlock";
@@ -22,4 +23,5 @@ export {
   Title,
   Subtitle,
   IconWithDescription,
+  ExerciseProgress,
 };
