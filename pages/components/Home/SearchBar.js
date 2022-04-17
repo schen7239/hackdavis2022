@@ -3,7 +3,7 @@ import React from "react";
 
 function SearchBar() {
   return (
-    <div className="rounded-full bg-white shadow-md flex flexRow p-2">
+    <div className="rounded-full bg-white shadow-md items-center flex flexRow p-2">
       <div className="rounded-full bg-primary-blue py-3 px-5">
         <Icon icon="codicon:search" color="white" />
       </div>

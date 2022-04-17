@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import { Sidebar, SearchBar } from "./components";
 import Internships from "./data/internships.json";
 import Recommendations from "./data/reccomended.json";
-import { UserJobCard } from "./components/index";
+import {
+  UserJobCard,
+  Title,
+  Subtitle,
+  InfoBlock,
+  IconWithDescription,
+} from "./components/index";
 
 function Careers() {
   const OpportunitiesTab = "opputitunities tab";
@@ -10,11 +16,16 @@ function Careers() {
   const ExercisesTab = "exercises tab";
   const [tab, setTab] = useState(OpportunitiesTab);
 
-  function Reccomendation({ name, location }) {
+  function Reccomendation({ name, location, border }) {
     return (
-      <div className="mb-5 border-b-2 border-black">
-        <p className="">{name}</p>
-        <p>{location}</p>
+      <div className="py-4">
+        <p className="font-bold mb-2 text-l">{name}</p>
+        <p className="text-l">{location}</p>
+        {border == true ? (
+          <div className="p-4 border-b-2 border-black"></div>
+        ) : (
+          <div></div>
+        )}
       </div>
     );
   }
@@ -40,28 +51,50 @@ function Careers() {
                   )
                 )}
               </div>
-              <div className="rounded-lg bg-white shadow-md my-5 flex flexRow p-10 content-center justify-between">
-                <div>
-                  <p className="ml-4 mt-1 text-3xl">Put your best foot forward</p>
-                  <p className="ml-4 mt-2">
-                    Request a resume review from an industry professional
-                  </p>
+              <InfoBlock>
+                <div className="flex flexRow items-center justify-between">
+                  <div>
+                    <Title>Put your best foot forward</Title>
+                    <Subtitle>
+                      Request a resume review from an industry professional
+                    </Subtitle>
+                  </div>
+                  <button className="w-auto h-8 text-white bg-primary-blue rounded-full px-2 py-1 text-xs font-medium active:scale-90 transition duration-150 ease-out">
+                    Request
+                  </button>
                 </div>
-                <button className="w-auto h-8 text-white bg-primary-blue rounded-full px-2 py-1 text-xs font-medium active:scale-90 transition duration-150 ease-out">
-                  Request
-                </button>
-              </div>
+              </InfoBlock>
             </div>
-            <div className="rounded-lg bg-white shadow-md p-10 ">
-              <div>
-                <p className="mt-1 text-2xl">Recomended for you</p>
-                <p className="mt-2">Based on your profile and search history</p>
+            <div>
+              <InfoBlock>
+                <Title>Recomended for you</Title>
+                <Subtitle>Based on your profile and search history</Subtitle>
                 <div className="mt-10">
-                  {Recommendations?.map(({ name, location }) => (
-                    <Reccomendation key={name} name={name} location={location} />
+                  {Recommendations?.map(({ name, location }, index) => (
+                    <Reccomendation
+                      key={name}
+                      name={name}
+                      location={location}
+                      border={index != Recommendations.length - 1}
+                    />
                   ))}
                 </div>
-              </div>
+              </InfoBlock>
+              <InfoBlock className="mt-4">
+                <Title>Similar jobs for you</Title>
+                <Subtitle>Based off the jobs you saved recently</Subtitle>
+                <div className="mt-10">
+                  {Internships?.map(({ title, location }, index) => (
+                    <IconWithDescription
+                      className="mt-8"
+                      key={index}
+                      title={title}
+                      subtitle={location}
+                      icon={<div className="h-12 w-12 rounded-full bg-blue-100" />}
+                    />
+                  ))}
+                </div>
+              </InfoBlock>
             </div>
           </div>
         );
