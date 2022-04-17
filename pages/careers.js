@@ -38,7 +38,7 @@ function Careers() {
     const [endDate, setEndDate] = useState(Date.now);
     const [isCalendarOpen, setIsCalendarOpen] = useState(false);
     const [filteredJobsData, setFilteredJobsData] = useState([]);
-    let filteredInternships = Internships.filter(internship => internship.title == filteredJobsData.map(item => item)[0])
+    let filteredInternships = 
     console.log(filteredInternships)
     switch (tab) {
       case OpportunitiesTab:
